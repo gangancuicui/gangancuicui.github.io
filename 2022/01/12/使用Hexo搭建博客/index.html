@@ -129,7 +129,46 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <p>​                                                                                            使用Hexo搭建博客</p>
+        <h1 id="使用Hexo-Github搭建个人博客"><a href="#使用Hexo-Github搭建个人博客" class="headerlink" title="使用Hexo+Github搭建个人博客"></a>使用Hexo+Github搭建个人博客</h1><p>使用Github和Hexo框架搭建的一个博客，记录一下。</p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ol>
+<li>下载安装Git</li>
+<li>下载安装node.js</li>
+<li>有一个Github账号</li>
+<li>拥有脑子和眼睛</li>
+</ol>
+<h2 id="开始安装"><a href="#开始安装" class="headerlink" title="开始安装"></a>开始安装</h2><p>安装Git，安装node.js。安装完成后，Win+R 输入 cmd 并打开，依次输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure>
+
+<p>并回车，出现程序版本号即可。</p>
+<p>开始菜单点击Git Bash使用以下命令添加Git邮箱和用户名</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;你的GitHub 用户名&quot;</span><br><span class="line">git config --global user.email &quot;你的GitHub 邮箱&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建SSH密钥"><a href="#创建SSH密钥" class="headerlink" title="创建SSH密钥"></a>创建SSH密钥</h3><p> 输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;GitHub 邮箱&quot;</span><br></pre></td></tr></table></figure>
+
+<p>然后一路回车。</p>
+<h3 id="添加SSH密钥"><a href="#添加SSH密钥" class="headerlink" title="添加SSH密钥"></a>添加SSH密钥</h3><p>进入 [C:\Users\用户名.ssh] 目录（要勾选显示“隐藏的项目”），用记事本打开公钥 id_rsa.pub 文件并复制里面的内容。登陆 GitHub ，进入 Settings 页面，选择左边栏的 SSH and GPG keys，点击 New SSH key。Title 随便取个名字，粘贴复制的 id_rsa.pub 内容到 Key 中，点击 Add SSH key 完成添加。</p>
+<p>验证连接，打开 Git Bash，输入 <code>ssh -T git@github.com</code> 出现 “Are you sure……”，输入 yes 回车确认。显示 “Hi xxx! You’ve successfully……” 即连接成功。</p>
+<h3 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h3><p>点击你GitHub头像旁的加号，点击 new repository,在名称那一栏输入github.io，然后创建，你的博客地址为 用户名.github.io</p>
+<h3 id="安装Hexo程序"><a href="#安装Hexo程序" class="headerlink" title="安装Hexo程序"></a>安装Hexo程序</h3><p>创建一个文件夹用于保存你的程序，在该文件夹右键打开 Git Bash Here。输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+
+<p>安装Hexo</p>
+<p>接着输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo init      # 初始化</span><br><span class="line">npm install    # 安装组件</span><br></pre></td></tr></table></figure>
+
+<p>接着依次输入下面命令，生成预览</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean	#清除缓存</span><br><span class="line">hexo g   # 生成页面</span><br><span class="line">hexo s   # 启动预览</span><br></pre></td></tr></table></figure>
+
+<p>复制出现的地址到浏览器即可打开</p>
+<p>成功后输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d  #提交到GitHub</span><br></pre></td></tr></table></figure>
+
+<p>即可使用 用户名.github.io来访问你的博客</p>
 
       </section>
 
